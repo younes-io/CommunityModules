@@ -61,11 +61,13 @@ IsStronglyConnected(G) ==
 -----------------------------------------------------------------------------
 IsTreeWithRoot(G, r) ==
   /\ IsDirectedGraph(G)
-  /\ \A e \in G.edge : /\ e[1] # r
-                       /\ \A f \in G.edge : (e[1] = f[1]) => (e = f)
+  /\ \A e \in G.edge : /\ e[2] # r
+                       /\ \A f \in G.edge : (e[2] = f[2]) => (e = f)
   /\ \A n \in G.node : AreConnectedIn(n, r, G)
+
 =============================================================================
 \* Modification History
+\* Last modified Sun Dec 24 14:31:00 CET 2023 by Younes Akhouayri
 \* Last modified Sun Mar 06 18:10:34 CET 2022 by Stephan Merz
 \* Last modified Tue Dec 21 15:55:45 PST 2021 by Markus Kuppe
 \* Created Tue Jun 18 11:44:08 PST 2002 by Leslie Lamport
